@@ -9,10 +9,13 @@ let journal = require('./controllers/journalcontroller');
 
 sequelize.sync();
 //sequelize.sync({force: true})
+app.use('/user', user)
+
+
 app.use(require('./middleware/headers'))
 app.use(express.json())
 app.use('/journal', journal)
-app.use('/user', user)
+
 // app.use(require('./middleware/validate-session'))
 
 app.listen(3000, function() {

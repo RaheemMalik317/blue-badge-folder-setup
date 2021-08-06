@@ -1,3 +1,4 @@
+//requrire('dotenv').config()
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize('workout-log', 'postgres', 'Aliyah&Nathan', {
     host: 'localhost',
