@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../db').import('../models/user');
 
 const validateSession = (req, res, next) => {
-    const token = req.headers.autherization;
+    const token = req.headers.authorization;
     console.log('token -->', token);
 
     if(!token) {

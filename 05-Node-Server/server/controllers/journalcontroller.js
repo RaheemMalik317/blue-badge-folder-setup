@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const validateSession = require('../middleware/validate-session');
-const journal = require('../models/journal');
 const Journal = require('../db').import('../models/journal')
 
 

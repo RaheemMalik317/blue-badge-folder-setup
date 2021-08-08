@@ -9,12 +9,12 @@ router.post('/register', function (req, res) {
 
     User.create({
         username: req.body.user.username,
-        passwordhash: bcrypt.hashSync(req.body.user.passwordhash, 13)
+        passwordhash: bcrypt.hashSync(req.body.user.password, 13)
     })
     .then(
         function createSuccess(user) {
             let token = jwt.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: 60 * 60 * 24});
-            res.json({
+            res.status(200).json({
                 user: user,
                 message: 'User successfully created!',
                 sessionToken: token
@@ -34,16 +34,16 @@ router.post('/login', function(req, res){
     User.findOne({where: {
         username: req.body.user.username
     }})
-    .then(function loginSuccess(user) {
+    .then(function loginSuccess(username) {
 
-      if (user){ 
-          bcrypt.compare(req.body.user.passwordhash, user.passwordhash, function(err, matches) {
+      if (username){ 
+          bcrypt.compare(req.body.user.passwordhash, username.passwordhash, function(err, matches) {
               if (matches) {
 
-                let token = jwt.sign({id: user.id}, process.env.JWT_SECRET, {expiresIn: 60 * 60 * 24})
+                let token = jwt.sign({id: username.id}, process.env.JWT_SECRET, {expiresIn: 60 * 60 * 24})
 
         res.status(200).json({
-            user: user,
+            username: username,
             message: "User successfully logged in",
             sessionToken: token
         })

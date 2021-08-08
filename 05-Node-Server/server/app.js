@@ -12,8 +12,8 @@ sequelize.sync();
 app.use('/user', user)
 
 
-app.use(require('./middleware/headers'))
 app.use(express.json())
+app.use(require('./middleware/headers'))
 app.use('/journal', journal)
 
 // app.use(require('./middleware/validate-session'))

@@ -5,7 +5,7 @@ let sequelize = require('./db');
 
 
 
-let workout = require('./controllers/workoutController')
+let log = require('./controllers/logController')
 let user = require('./controllers/userController')
 
 sequelize.sync();
@@ -13,9 +13,9 @@ sequelize.sync();
 app.use(express.json());
 app.use('/user', user);
 
+app.use('/log', log);
 app.use(require('./middleware/validate-session'))
 
-app.use('/workout', workout);
 
 
 
