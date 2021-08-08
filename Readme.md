@@ -25,3 +25,6 @@
 - git add .
 - git commit -m "NAME OF MODULE YOU JUST COMPLETED"
 - git push origin main
+
+
+![Image of Registering](http://![Register](https://user-images.githubusercontent.com/82741663/128646844-e8baa477-2646-4b1e-9c6e-d5e7e3fa7bc3.png)
