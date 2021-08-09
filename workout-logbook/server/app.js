@@ -12,7 +12,7 @@ sequelize.sync();
 //sequelize.sync({force: true})
 app.use(express.json());
 app.use('/user', user);
-
+app.use(require('./middleware/headers'))
 app.use('/log', log);
 app.use(require('./middleware/validate-session'))
 

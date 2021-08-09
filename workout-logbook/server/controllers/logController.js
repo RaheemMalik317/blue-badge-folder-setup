@@ -13,7 +13,7 @@ router.get('/practice', validateSession,  function(req, res) {
  Workout create! 
  */
 
-router.post('/create', validateSession, (req, res) => {
+router.post('/', validateSession, (req, res) => {
         const logEntry = {
                 description: req.body.log.description,
                 definition: req.body.log.definition,
@@ -37,10 +37,10 @@ router.get("/", (req, res) => {
         .catch(err => res.status(500).json({error: err}))
 });
 
-router.get("/id", validateSession, (req, res) => {
+router.get("/:entryid", validateSession, (req, res) => {
         let userid = req.user.id
         Log.findAll({
-                where: {owner_id: userid}
+                where:  {id: req.params.entryId, owner_id: req.user.id}
         })
         .then(logs => res.status(200).json(logs))
         .catch(err => res.status(200).json({error: err}))
