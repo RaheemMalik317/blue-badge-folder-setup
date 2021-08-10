@@ -160,8 +160,12 @@ function displayAll(){
               para.textContent = entry
     
 }
+        }
+    })
+}
 
 //DISPLAY BY TITLE
+
 function displayByTitle() {
     let journalTitle = document.getElementById('searchBar').value;
     console.log(journalTitle)
@@ -177,7 +181,7 @@ function displayByTitle() {
         })
         .catch(
             function (error) {
-                console.error('Error', error);
+                console.error('Error', error)
             })
             .then( function(response) {
                 console.log(response)
