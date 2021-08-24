@@ -2,8 +2,8 @@ import React from 'react';
 
 import {
     Card, CardText, CardBody,
-    CardTitle, CardSubtitle, Bitton, Container,
-    Row, Col, Button
+    CardTitle, CardSubtitle, Button, Container,
+    Row, Col
  } from 'reactstrap';
 
 
@@ -45,6 +45,7 @@ const FunctionalConponentDemo = function() {
 export default FunctionalConponentDemo
 
 
+
 const HelloWorld = function() {
     return(
         <div>
@@ -69,7 +70,7 @@ const HelloWorldFatArrow = () =>
         <CardBody>
             <CardTitle>Fat Arrow</CardTitle>
             <CardSubtitle>A JS Library</CardSubtitle>
-            <CardText><pre>const HelloWorld = () => </pre>.</CardText>
+            <CardText><pre>const HelloWorld = function() </pre>.</CardText>
             <Button>Go somewhere man</Button>
         </CardBody>
     </Card>
